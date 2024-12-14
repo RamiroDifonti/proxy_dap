@@ -14,8 +14,10 @@ public class Proxy implements SpotifyInterface {
     @Override
     public Track getTrack(String id) {
         if (_cache.containsKey(id)) {
+            System.out.println("Retrieving from cache.");
             return _cache.get(id);
         } else {
+            System.out.println("Retrieving from Api.");
             Track track = _spotify.getTrack(id);
             _cache.put(id, track);
             return track;
