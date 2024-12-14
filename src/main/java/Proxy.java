@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Proxy implements SpotifyInterface {
-    private final Spotify _spotify;
+    private final SpotifyInterface _spotify;
     private final Map<String, Track> _cache;
 
-    public Proxy(String id, String secret) {
-        this._spotify = new Spotify(id, secret);
+    public Proxy(SpotifyInterface spotify) {
+        this._spotify = spotify;
         this._cache = new HashMap<>();
     }
     @Override
